@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Giftastic</title>
+	<!--Link to bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+</head>
+<body>
+
+<div class="container">
+
+<!--Row 1: All of my animal buttons to be displayed and added-->
+<div class="row">
+	<div class="col-md-12" style="background-color: pink">
+		<div class="addedAnimalButtons">Animal buttons will be here!
+
+		</div>
+	</div>
+</div>
+
+<!--Row 2: There will be two separate columns-
+	-The first column will house the div for all the 
+	pulled animal gifs to be dumped. 
+	-The second column will house the button for the user
+	to add more animal buttons
+-->
+<div class="row">
+	<div class="col-lg-9" style="background-color: gray">
+		<div id="gifDump">Gifs will be dumped here!</div>
+		<!--This is a div to hold the gif rating info-->
+		<div id="gifRating"></div>
+	</div>
+
+	<div class="col-lg-3" style="background-color: salmon;">
+		<!--Create a form for the user to add animal-->
+		<form id="animalForm">
+			<label for="animalInput">Add Animal Gif</label>
+			<input type="text" id="animalInput">
+		</form>
+		<!--Create a submit button-->
+		<input id="add-animal" type="submit" value="Add Animal">
+	</div>
+</div>
+
+
+
+<!-- Jquery link -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!--Javascript link -->
+<script type="text/javascript" src="assets/javascript/gifHomework.js"></script>
+
+
+
+
+</body>
+</html>
