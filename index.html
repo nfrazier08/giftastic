@@ -4,6 +4,8 @@
 	<title>Giftastic</title>
 	<!--Link to bootstrap-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!--Link to CSS-->
+	<link rel="stylesheet" type="text/css" href="assets/css/index.css">
 	
 </head>
 <body>
@@ -12,7 +14,7 @@
 
 <!--Row 1: All of my animal buttons to be displayed and added-->
 <div class="row">
-	<div class="col-md-12" style="background-color: pink">
+	<div class="col-md-12" style="background-color: pink; height: 150px;">
 		<div class="addedAnimalButtons">Animal buttons will be here!
 
 		</div>
@@ -26,13 +28,13 @@
 	to add more animal buttons
 -->
 <div class="row">
-	<div class="col-lg-9" style="background-color: gray">
+	<div class="col-lg-9" id="gifDump">
 		<div id="gifDump">Gifs will be dumped here!</div>
 		<!--This is a div to hold the gif rating info-->
 		<div id="gifRating"></div>
 	</div>
 
-	<div class="col-lg-3" style="background-color: salmon;">
+	<div class="col-lg-3" id="form">
 		<!--Create a form for the user to add animal-->
 		<form id="animalForm">
 			<label for="animalInput">Add Animal Gif</label>
@@ -45,9 +47,18 @@
 
 <!--Row 3: Giphy credit image-->
 <div class="row">
-	<div class="col-lg-12">
-		<img src="assets/images/giphyCredit.png" alt="Giphy giphyCredit" style="width:500px;height:228px;">		
+	<div class="col-lg-3">
 	</div>
+
+	<div class="col-lg-6">
+		<img src="assets/images/giphyCredit.png" alt="Giphy giphyCredit" style="width:550px;height:200px;">		
+	</div>
+
+	<div class="col-lg-3">
+	</div>
+</div>
+
+
 </div>
 
 

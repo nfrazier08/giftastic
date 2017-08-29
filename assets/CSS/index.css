@@ -1,0 +1,13 @@
+#form{
+	background-color: salmon;
+	padding:10px;
+}
+
+#add-animal{
+	margin:5px;
+}
+
+#gifDump{
+	background-color: gray;
+	min-height: 500px;
+}
