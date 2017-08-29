@@ -42,7 +42,7 @@ displayAnimalGifs();
 			//animal in the array
 		for (var i = 0; i < animals.length; i++) {
 			var newAnimalButton = $("<button type='button' class='btn btn-success'>");
-			newAnimalButton.attr("data-animal", animals[i]);
+			newAnimalButton.attr("data-animal", "data-state", animals[i]);
 			newAnimalButton.text(animals[i]);
 			$(".addedAnimalButtons").append(newAnimalButton);
 		} //End of the for loop
@@ -69,6 +69,15 @@ displayAnimalGifs();
 //STEP 5: Create a function where the player can:
 	//"pause" and "play" the gifs
 	//Apply this function to the animals in the array
+	$(".addedAnimalButtons").on("click", function() {
+		if(state === "still") {
+            $(this).attr('data-state', 'animate');
+            $(this).attr('src', $(this).attr('data-animate'));
+          } else{
+            $(this).attr('data-state', 'still');
+            $(this).attr('src', $(this).attr('data-still'));
+          }
+    })
 
 
 
