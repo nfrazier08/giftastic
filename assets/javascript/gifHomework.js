@@ -15,12 +15,27 @@ $(document).ready(function() {
 		//Loop through the array of animals, then generate buttons for each
 			//animal in the array
 		for (var i = 0; i < animals.length; i++) {
-			var newAnimalButton = $("<button type='button' id='animalCall' class='btn btn-success' style='margin:10px';>");
-			newAnimalButton.attr("data-state", "data-name", animals[i]);
+			//This is just a variable
+			var newAnimalButton = $("<button type='button' class='btn btn-success' style='margin:10px';>");
+			newAnimalButton.attr("data-state", "data-name", "button", animals[i]);
 			newAnimalButton.text(animals[i]);
 			$(".addedAnimalButtons").append(newAnimalButton);
 		} //End of the for loop
 	}//End of the renderButtons function
+
+	// $("#theQuestion").empty();
+	// 	for (var i = 0; i < myQuestions.length; i++) {
+ //  			$("#theQuestion").append("<div><h4>" + myQuestions[i].question + "</h4></div>");
+ //  			var newUl = $("<ul>") //This is just a variable
+
+  			// //second for loop is to get choices to appear with the questions in an unordered list
+  			// for (var j = 0; j < myQuestions[i].choices.length; j++) {
+  			// 	var newLi = $("<li>");
+  			// 	newLi.text(myQuestions[i].choices[j]); //Tell computer what text to put in the new LI
+  			// 	newUl.append(newLi);
+  			// 	newLi.data('question', i)
+
+  			// 	$("#theQuestion").append(newUl);
 
 	renderButtons();
 	
@@ -43,8 +58,6 @@ $(document).ready(function() {
 //Register click handler
 	$("button").on("click", function() {
 
-	function displayAnimalGifs () {
-
 	var animal = $(this).attr("data-name");
 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + 
 				animal + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -59,10 +72,7 @@ $(document).ready(function() {
 		$("#gifDump").html('<img scr"' + results[0].images.original.url + '">');
 
 		});
-	}
-	displayAnimalGifs();
-
-})
+	})
 
 //STEP 5: Create a function where the player can:
 	//"pause" and "play" the gifs
@@ -77,7 +87,12 @@ $(document).ready(function() {
           }
     })
 
-}) 
+
+
+})//End of my assignment
+
+
+
 		
 
 	
