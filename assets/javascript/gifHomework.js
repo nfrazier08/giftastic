@@ -23,20 +23,6 @@ $(document).ready(function() {
 		} //End of the for loop
 	}//End of the renderButtons function
 
-	// $("#theQuestion").empty();
-	// 	for (var i = 0; i < myQuestions.length; i++) {
- //  			$("#theQuestion").append("<div><h4>" + myQuestions[i].question + "</h4></div>");
- //  			var newUl = $("<ul>") //This is just a variable
-
-  			// //second for loop is to get choices to appear with the questions in an unordered list
-  			// for (var j = 0; j < myQuestions[i].choices.length; j++) {
-  			// 	var newLi = $("<li>");
-  			// 	newLi.text(myQuestions[i].choices[j]); //Tell computer what text to put in the new LI
-  			// 	newUl.append(newLi);
-  			// 	newLi.data('question', i)
-
-  			// 	$("#theQuestion").append(newUl);
-
 	renderButtons();
 	
 //STEP 3: The user can add an animal button to the addedAnimalButton div
