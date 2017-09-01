@@ -17,7 +17,7 @@ $(document).ready(function() {
 			for (var i = 0; i < animals.length; i++) {
 			//This is just a variable
 			var newAnimalButton = $("<button type='button' class='btn btn-success' style='margin:10px';>");
-			newAnimalButton.attr("data-state", "data-name", "button", animals[i]);
+			newAnimalButton.attr("data-name", animals[i]);
 			newAnimalButton.text(animals[i]);
 			$(".addedAnimalButtons").append(newAnimalButton);
 		} //End of the for loop
@@ -38,14 +38,14 @@ $(document).ready(function() {
 
 	}) //End of the click function
 
- 	renderButtons();
-
+ 	
 //STEP 4: Set up ajax function to request information Giphy
 //Register click handler
-$("button").on("click", function() {
+$(".addedAnimalButtons").on("click", "button", function() {
 
 	var animal = $(this).attr("data-name");
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + 
+	console.log(animal);
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + 
 	animal + "&api_key=dc6zaTOxFJmzC&limit=10";
 
 	//THIS IS NOT WORKING
@@ -53,9 +53,17 @@ $("button").on("click", function() {
 		url:queryURL,
 		method:"GET"
 	}).done(function(response) {
+		$("#gifDump").empty();
 		var results = response.data;
-		// console.log(this);
-		$("#gifDump").html('<img scr"' + results[0].images.original.url + '">');
+		console.log(results, "r");
+		//Add a loop here
+		for (var i = 0; i < results.length; i++) {
+			var img = $('<img src="' + results[i].images.original.url + '">');
+			img.attr("data-state");
+			img.attr("data-animate");
+			img.attr("data-still");
+			$("#gifDump").append(img);
+		}
 
 	});
 })
@@ -63,8 +71,8 @@ $("button").on("click", function() {
 //STEP 5: Create a function where the player can:
 	// "pause" and "play" the gifs
 	//Apply this function to the animals in the array
-	$(".addedAnimalButtons").on("click", function() {
-		if("data-state" === "still") {
+	$("#gifDump").on("click", "img", function() {
+		if($(this).attr("data-state") === "still") {
 			$(this).attr('data-state', 'animate');
 			$(this).attr('src', $(this).attr('data-animate'));
 		} else{
