@@ -59,9 +59,9 @@ $(".addedAnimalButtons").on("click", "button", function() {
 		//Add a loop here
 		for (var i = 0; i < results.length; i++) {
 			var img = $('<img src="' + results[i].images.original.url + '">');
-			img.attr("data-state");
-			img.attr("data-animate");
-			img.attr("data-still");
+			img.attr("data-state", "animated");
+			img.attr("data-animate", );
+			img.attr("data-still", "");
 			$("#gifDump").append(img);
 		}
 
