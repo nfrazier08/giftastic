@@ -5,6 +5,8 @@ $(document).ready(function() {
 	"frog", "elephant", "lion", "baboon", "bat", 
 	"fish", "eagle", "honey bee", "walrus"];
 
+	var img;
+
 //STEP 2: Create buttons out of the original array of animals 
 	//to display in the class addedAnimalButtons
 	function renderButtons(){
@@ -46,7 +48,7 @@ $(".addedAnimalButtons").on("click", "button", function() {
 	var animal = $(this).attr("data-name");
 	console.log(animal);
 	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + 
-	animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+	animal + "&api_key=dc6zaTOxFJmzC&limit=15";
 
 	//THIS IS NOT WORKING
 	$.ajax({
@@ -58,9 +60,12 @@ $(".addedAnimalButtons").on("click", "button", function() {
 		//Add a loop here
 		for (var i = 0; i < results.length; i++) {
 			var img = $('<img src="' + results[i].images.original.url + '">');
-			//Attr:
-				//First in "" is the attr you want to assign value to
-				//The second in "" is the value itself
+			//Add Data Attributes
+				//All this is added
+				img.attr("data-state", "animate");
+				$("<img>").attr("data-state", "still");
+				$("<img>").attr("animate", '<img src="' + results[i].images.original.url + '">');
+				$("<img>").attr("still", '<img src="' + results[i].images.original_still.url + '">');
 			img.attr($("#gifDump").append(img));
 		}
 
@@ -68,9 +73,10 @@ $(".addedAnimalButtons").on("click", "button", function() {
 })
 
 //STEP 5: Create a function where the player can:
-	// "pause" and "play" the gifs
-	//Apply this function to the animals in the array
-	
+img.on("click",  function() {
+	alert("clicked!");
+});
+
 
 
 })//End of my assignment
