@@ -55,14 +55,13 @@ $(".addedAnimalButtons").on("click", "button", function() {
 	}).done(function(response) {
 		$("#gifDump").empty();
 		var results = response.data;
-		console.log(results, "r");
 		//Add a loop here
 		for (var i = 0; i < results.length; i++) {
 			var img = $('<img src="' + results[i].images.original.url + '">');
-			img.attr("data-state", "animated");
-			img.attr("data-animate", );
-			img.attr("data-still", "");
-			$("#gifDump").append(img);
+			//Attr:
+				//First in "" is the attr you want to assign value to
+				//The second in "" is the value itself
+			img.attr($("#gifDump").append(img));
 		}
 
 	});
@@ -71,16 +70,7 @@ $(".addedAnimalButtons").on("click", "button", function() {
 //STEP 5: Create a function where the player can:
 	// "pause" and "play" the gifs
 	//Apply this function to the animals in the array
-	$("#gifDump").on("click", "img", function() {
-		if($(this).attr("data-state") === "still") {
-			$(this).attr('data-state', 'animate');
-			$(this).attr('src', $(this).attr('data-animate'));
-		} else{
-			$(this).attr('data-state', 'still');
-			$(this).attr('src', $(this).attr('data-still'));
-		}
-	})
-
+	
 
 
 })//End of my assignment
