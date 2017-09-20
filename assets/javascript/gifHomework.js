@@ -40,47 +40,50 @@ $(document).ready(function() {
 
 	}) //End of the click function
 
+
+
  	
 //STEP 4: Set up ajax function to request information Giphy
 //Register click handler
-$(".addedAnimalButtons").on("click", "button", function() {
+	$(".addedAnimalButtons").on("click", "button", function() {
 
-	var animal = $(this).attr("data-name");
-	console.log(animal);
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + 
-	animal + "&api_key=dc6zaTOxFJmzC&limit=15";
+		var animal = $(this).attr("data-name");
+		console.log(animal);
+		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + 
+		animal + "&api_key=dc6zaTOxFJmzC&limit=15";
 
-	//THIS IS NOT WORKING
-	$.ajax({
-		url:queryURL,
-		method:"GET"
-	}).done(function(response) {
-		$("#gifDump").empty();
-		var results = response.data;
-		//Add a loop here
-		for (var i = 0; i < results.length; i++) {
-			var img = $('<img src="' + results[i].images.original.url + '">');
-			//Add Data Attributes
-				//All this is added
-				img.attr("data-state", "animate");
-				$("<img>").attr("data-state", "still");
-				$("<img>").attr("animate", '<img src="' + results[i].images.original.url + '">');
-				$("<img>").attr("still", '<img src="' + results[i].images.original_still.url + '">');
-			img.attr($("#gifDump").append(img));
-		}
+		//THIS IS NOT WORKING
+		$.ajax({
+			url:queryURL,
+			method:"GET"
+		}).done(function(response) {
+			$("#gifDump").empty();
+			var results = response.data;
 
-	});
-})
+			//Add a loop here
+			for (var i = 0; i < results.length; i++) {
+				var img = $('<img src="' + results[i].images.original.url + '">');
+				img.addClass("changeData");
+				console.log(img);
+				//Add Data Attributes
+					//All this is added
+					// img.attr("data-state", "animate");
+					// $("<img>").attr("data-state", "still");
+					// $("<img>").attr("animate", '<img src="' + results[i].images.original.url + '">');
+					// $("<img>").attr("still", '<img src="' + results[i].images.original_still.url + '">');
+				img.attr($("#gifDump").append(img));
+			} //End of for loop				
+		}); //After done function
+	})
 
-//STEP 5: Create a function where the player can:
-img.on("click",  function() {
-	alert("clicked!");
-});
+	$("#gifDump").on("click", "img", function() {
+		console.log("working");
+		});
+	
 
 
 
 })//End of my assignment
-
 
 
 
