@@ -6,6 +6,7 @@ $(document).ready(function() {
 	"fish", "eagle", "honey bee", "walrus"];
 
 	var img;
+	var state;
 
 //STEP 2: Create buttons out of the original array of animals 
 	//to display in the class addedAnimalButtons
@@ -40,17 +41,14 @@ $(document).ready(function() {
 
 	}) //End of the click function
 
-
-
- 	
 //STEP 4: Set up ajax function to request information Giphy
 //Register click handler
-	$(".addedAnimalButtons").on("click", "button", function() {
+$(".addedAnimalButtons").on("click", "button", function() {
 
-		var animal = $(this).attr("data-name");
-		console.log(animal);
-		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + 
-		animal + "&api_key=dc6zaTOxFJmzC&limit=15";
+	var animal = $(this).attr("data-name");
+	console.log(animal);
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + 
+	animal + "&api_key=dc6zaTOxFJmzC&limit=15";
 
 		//THIS IS NOT WORKING
 		$.ajax({
@@ -63,23 +61,26 @@ $(document).ready(function() {
 			//Add a loop here
 			for (var i = 0; i < results.length; i++) {
 				var img = $('<img src="' + results[i].images.original.url + '">');
-				img.addClass("changeData");
-				console.log(img);
-				//Add Data Attributes
-					//All this is added
-					// img.attr("data-state", "animate");
-					// $("<img>").attr("data-state", "still");
-					// $("<img>").attr("animate", '<img src="' + results[i].images.original.url + '">');
-					// $("<img>").attr("still", '<img src="' + results[i].images.original_still.url + '">');
-				img.attr($("#gifDump").append(img));
+				
+				
+					//Define state 
+					var state = $(this).attr("data-state");
+					//Add Data Attributes
+					img.attr("data-state", "animate");
+					img.attr("data-state", "still");
+					img.attr("animate", '<img src="' + results[i].images.original.url + '">');
+					img.attr("still", '<img src="' + results[i].images.original_still.url + '">');
+					
+					img.attr($("#gifDump").append(img));
 			} //End of for loop				
 		}); //After done function
 	})
 
-	$("#gifDump").on("click", "img", function() {
-		console.log("working");
-		});
-	
+//STEP 5: Pause and Play gifs with click function
+$("#gifDump").on("click", "img", function() {
+	console.log("working");
+});
+
 
 
 
