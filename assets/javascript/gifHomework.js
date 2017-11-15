@@ -62,35 +62,28 @@ $(".addedAnimalButtons").on("click", "button", function() {
 			for (var i = 0; i < results.length; i++) {
 				// var img = $('<img src="' + results[i].images.original.url + '">');
 				var img = $('<img src="' + results[i].images.original.url + '">');
-				// img.attr("animate", '<img src="' + results[i].images.original.url + '">');
-				// img.attr("still", '<img src="' + results[i].images.original_still.url + '">');
-				// var state = $(this).attr("data-state");					
+				img.attr("animate", '<img src="' + results[i].images.original.url + '">');
+				img.attr("still", '<img src="' + results[i].images.original_still.url + '">');
+				// img.attr("data", "")
+				// var state = $(img).attr("data-state");		
+				img.attr("data-state", "still");
+				img.attr("data-state", "animate");			
 				img.attr($("#gifDump").append(img));
 			} //End of for loop				
 		}); //After done function
 	})
 
 //STEP 5: Pause and Play gifs with click function
-// $("#gifDump").on("click", "img", function() {
-// 	console.log("working");
-// 		if( === ){
+$("#gifDump").on("click", "img", function() {
+	// console.log("working");
+		if(data-state === "animate"){
+			var img = $('<img src="' + results[i].images.original.url + '">');
 
 
-// 		}
+		}
+	}
 	
  
-
-// });
-
-          // if(state === "still") {
-          //   $(this).attr('data-state', 'animate');
-          //   $(this).attr('src', $(this).attr('data-animate'));
-          // } else{
-          //   $(this).attr('data-state', 'still');
-          //   $(this).attr('src', $(this).attr('data-still'));
-          // }
-
-
 
 
 })//End of my assignment
